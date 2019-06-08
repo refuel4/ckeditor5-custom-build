@@ -1,7 +1,7 @@
 /**
- * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
- */
+* @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+* For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+*/
 
 'use strict';
 
@@ -12,8 +12,9 @@ const webpack = require( 'webpack' );
 const { bundler, styles } = require( '@ckeditor/ckeditor5-dev-utils' );
 const CKEditorWebpackPlugin = require( '@ckeditor/ckeditor5-dev-webpack-plugin' );
 const UglifyJsWebpackPlugin = require( 'uglifyjs-webpack-plugin' );
+const BundleAnalyzerPlugin = require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin;
 
-module.exports = {
+const config = {
 	devtool: 'source-map',
 	performance: { hints: false },
 
@@ -53,7 +54,8 @@ module.exports = {
 		new webpack.BannerPlugin( {
 			banner: bundler.getLicenseBanner(),
 			raw: true
-		} )
+		} ),
+		new BundleAnalyzerPlugin()
 	],
 
 	module: {
@@ -85,3 +87,13 @@ module.exports = {
 		]
 	}
 };
+
+if ( process.env.bundle_analyzer ) {
+	// eslint-disable-next-line global-require
+	const { BundleAnalyzerPlugin } = require( 'webpack-bundle-analyzer' );
+	config.plugins.push( new BundleAnalyzerPlugin( {
+		openAnalyzer: true
+	} ) );
+}
+
+module.exports = config;
