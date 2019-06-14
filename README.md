@@ -14,7 +14,15 @@ yarn add ckeditor5-creadits-build
 And use it as an usual ckeditor5 build
 
 ```
+import Editor from 'ckeditor5-creadits-build';
+
 ...
+
+Editor
+	.create(htmlElement, config)
+	.then(editor => {
+  ...
+
 ```
 
 ## How to modify
@@ -29,6 +37,11 @@ Add or remove plugins, modify the config in `src/ckeditor.js`
 Create the build
 ```
 npm run build
+```
+
+Optional: build and check the bundle size
+```
+npm run build:analyzer
 ```
 
 Publish to npm (might require team member permission)

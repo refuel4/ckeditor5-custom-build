@@ -12,7 +12,6 @@ const webpack = require( 'webpack' );
 const { bundler, styles } = require( '@ckeditor/ckeditor5-dev-utils' );
 const CKEditorWebpackPlugin = require( '@ckeditor/ckeditor5-dev-webpack-plugin' );
 const UglifyJsWebpackPlugin = require( 'uglifyjs-webpack-plugin' );
-const BundleAnalyzerPlugin = require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin;
 
 const config = {
 	devtool: 'source-map',
@@ -55,7 +54,6 @@ const config = {
 			banner: bundler.getLicenseBanner(),
 			raw: true
 		} ),
-		new BundleAnalyzerPlugin()
 	],
 
 	module: {
