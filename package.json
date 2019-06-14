@@ -1,6 +1,6 @@
 {
-  "name": "ckeditor5-build-crd",
-  "version": "12.2.2",
+  "name": "ckeditor5-creadits-build",
+  "version": "12.2.5",
   "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
     "ckeditor5-build",
@@ -71,7 +71,7 @@
   "bugs": "https://github.com/ckeditor/ckeditor5-build-classic/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ckeditor/ckeditor5-build-classic.git"
+    "url": "https://github.com/refuel4/ckeditor5-custom-build.git"
   },
   "scripts": {
     "build": "webpack --mode production",
