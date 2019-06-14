@@ -92,5 +92,8 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-editor-inline": "^12.1.1"
   }
 }

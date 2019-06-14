@@ -4,7 +4,8 @@
 */
 
 // The editor creator to use.
-import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+// import EditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+import EditorBase from '@ckeditor/ckeditor5-editor-inline/src/inlineeditor';
 
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
@@ -35,7 +36,7 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 
-export default class ClassicEditor extends ClassicEditorBase {}
+export default class ClassicEditor extends EditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
