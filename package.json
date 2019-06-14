@@ -59,7 +59,8 @@
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.15.0",
     "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.7.1"
   },
   "engines": {
     "node": ">=8.0.0",
@@ -74,6 +75,7 @@
     "url": "https://github.com/refuel4/ckeditor5-custom-build.git"
   },
   "scripts": {
+    "start": "npm run build && webpack-dev-server",
     "build": "webpack --mode production",
     "build:analyzer": "bundle_analyzer=1 webpack --mode production",
     "lint": "eslint --quiet '**/*.js'",

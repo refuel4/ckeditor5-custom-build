@@ -44,6 +44,11 @@ Optional: build and check the bundle size
 npm run build:analyzer
 ```
 
+Build and check the sample usage of the build
+```
+npm start
+```
+
 Publish to npm (might require team member permission)
 ```
 npm publish
