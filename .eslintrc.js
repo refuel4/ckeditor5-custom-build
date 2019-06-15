@@ -8,5 +8,9 @@
 'use strict';
 
 module.exports = {
-	extends: 'ckeditor5'
+	extends: 'ckeditor5',
+	parserOptions: {
+    ecmaVersion: 9,
+    sourceType: 'module'
+  }
 };

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>CKEditor 5 – classic editor build – development sample</title>
+	<title>CKEditor 5 – super build – development sample</title>
 	<style>
 		body {
 			max-width: 800px;
@@ -12,12 +12,12 @@
 </head>
 <body>
 
-<h1>CKEditor 5 – classic editor build – development sample</h1>
+<h1>CKEditor 5 – super build – development sample</h1>
 
 <div id="editor">
-	<h2>Sample</h2>
+	<h2>Inline Editor</h2>
 
-	<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic editor build</a>.</p>
+	<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#inline-editor">inline editor build</a>.</p>
 
 	<figure class="image">
 		<img src="../tests/manual/sample.jpg" alt="Autumn fields" />
@@ -26,9 +26,23 @@
 	<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
 </div>
 
+<div id="editor-2">
+    <h2>Classic Editor</h2>
+
+		<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic editor build</a>.</p>
+</div>
+
 <script src="../build/ckeditor.js"></script>
 <script>
-	ClassicEditor.create( document.querySelector( '#editor' ) )
+	CKEDITOR.InlineEditor.create( document.querySelector( '#editor' ) )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+
+	CKEDITOR.ClassicEditor.create( document.querySelector( '#editor-2' ) )
 		.then( editor => {
 			window.editor = editor;
 		} )
