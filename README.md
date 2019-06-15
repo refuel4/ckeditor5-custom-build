@@ -8,17 +8,19 @@ Forked from [ckeditor5-build-classic](https://github.com/ckeditor/ckeditor5-buil
 Install the build from npm
 
 ```
+# optional: make sure to use the latest version by uninstalling first
+# yarn remove ckeditor5-creadits-build
 yarn add ckeditor5-creadits-build
 ```
 
 And use it as an usual ckeditor5 build
 
 ```
-import Editor from 'ckeditor5-creadits-build';
+import { InlineEditor } from 'ckeditor5-creadits-build';
 
 ...
-// Notice that this is a super build, thus it exposes multiple Editor creators. Choose the one you need.
-CKEDITOR.InlineEditor
+
+InlineEditor
 	.create(htmlElement, config)
 	.then(editor => {
   ...

@@ -89,33 +89,35 @@ InlineEditorWithComment.builtinPlugins = [
 
 // Editor configuration.
 const defaultConfig = {
-	toolbar: [
-		'heading',
-		// '|',
-		// 'fontsize',
-		// 'fontfamily',
-		'|',
-		'bold',
-		'italic',
-		'underline',
-		'strikethrough',
-		// 'removeFormat',
-		// 'highlight',
-		'|',
-		'alignment',
-		'|',
-		// 'numberedList',
-		// 'bulletedList',
-		// '|',
-		'link',
-		// 'blockquote',
-		'insertTable',
-		'imageUpload',
-		'mediaEmbed',
-		'|',
-		'undo',
-		'redo',
-	],
+	toolbar: {
+		items: [
+			'heading',
+			// '|',
+			// 'fontsize',
+			// 'fontfamily',
+			'|',
+			'bold',
+			'italic',
+			'underline',
+			'strikethrough',
+			// 'removeFormat',
+			// 'highlight',
+			'|',
+			'alignment',
+			'|',
+			// 'numberedList',
+			// 'bulletedList',
+			// '|',
+			'link',
+			// 'blockquote',
+			'insertTable',
+			'imageUpload',
+			'mediaEmbed',
+			'|',
+			'undo',
+			'redo',
+		]
+	},
 	image: {
 		toolbar: [
 			'imageStyle:alignLeft',
@@ -145,11 +147,12 @@ ClassicEditor.defaultConfig = defaultConfig;
 InlineEditor.defaultConfig = defaultConfig;
 
 const defaultConfigWithComment = { ...defaultConfig };
-defaultConfigWithComment.toolbar = [
-	...defaultConfigWithComment.toolbar,
+const items = [
+	...defaultConfigWithComment.toolbar.items,
 	'|',
 	'comment',
 ];
+defaultConfigWithComment.toolbar = { items };
 defaultConfigWithComment.image = {
 	toolbar: [
 		'imageStyle:alignLeft',
