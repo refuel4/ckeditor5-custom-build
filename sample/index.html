@@ -15,7 +15,7 @@
 <h1>CKEditor 5 – super build – development sample</h1>
 
 <div id="editor">
-	<h2>Inline Editor</h2>
+	<h2>Balloon Editor</h2>
 
 	<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#inline-editor">inline editor build</a>.</p>
 
@@ -27,14 +27,14 @@
 </div>
 
 <div id="editor-2">
-    <h2>Classic Editor</h2>
+  <h2>Classic Editor</h2>
 
-		<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic editor build</a>.</p>
+	<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic editor build</a>.</p>
 </div>
 
 <script src="../build/ckeditor.js"></script>
 <script>
-	CKEDITOR.InlineEditor.create( document.querySelector( '#editor' ) )
+	CKEDITOR.BalloonEditor.create( document.querySelector( '#editor' ) )
 		.then( editor => {
 			window.editor = editor;
 		} )

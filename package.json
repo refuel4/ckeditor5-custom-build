@@ -36,6 +36,7 @@
     "@ckeditor/ckeditor5-dev-utils": "^12.0.0",
     "@ckeditor/ckeditor5-dev-webpack-plugin": "^8.0.0",
     "@ckeditor/ckeditor5-easy-image": "^11.0.2",
+    "@ckeditor/ckeditor5-editor-balloon": "^12.1.1",
     "@ckeditor/ckeditor5-editor-classic": "^12.1.1",
     "@ckeditor/ckeditor5-editor-inline": "^12.1.1",
     "@ckeditor/ckeditor5-essentials": "^11.0.2",

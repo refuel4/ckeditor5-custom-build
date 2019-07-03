@@ -7,7 +7,8 @@
 
 // The editor creator to use.
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-import InlineEditorBase from '@ckeditor/ckeditor5-editor-inline/src/inlineeditor';
+// import InlineEditorBase from '@ckeditor/ckeditor5-editor-inline/src/inlineeditor';
+import BalloonEditorBase from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 // import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
@@ -39,10 +40,13 @@ import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapte
 import BalloonToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/balloon/balloontoolbar';
 import Comments from '@ckeditor/ckeditor5-comments/src/comments';
 import CommentsOnly from '@ckeditor/ckeditor5-comments/src/commentsonly';
+import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar';
 
 class ClassicEditor extends ClassicEditorBase {}
-class InlineEditor extends InlineEditorBase {}
-class InlineEditorWithComment extends InlineEditorBase {}
+// class InlineEditor extends InlineEditorBase {}
+// class InlineEditorWithComment extends InlineEditorBase {}
+class BalloonEditor extends BalloonEditorBase {}
+class BalloonEditorWithComment extends BalloonEditorBase {}
 
 // Plugins to include in the build.
 const builtinPlugins = [
@@ -74,13 +78,23 @@ const builtinPlugins = [
 	TableToolbar,
 	Underline,
 	UploadAdapter,
+	BlockToolbar,
 ];
 
 ClassicEditor.builtinPlugins = builtinPlugins;
 
-InlineEditor.builtinPlugins = builtinPlugins;
+// InlineEditor.builtinPlugins = builtinPlugins;
+//
+// InlineEditorWithComment.builtinPlugins = [
+// 	...builtinPlugins,
+// 	BalloonToolbar,
+// 	Comments,
+// 	CommentsOnly,
+// ];
 
-InlineEditorWithComment.builtinPlugins = [
+BalloonEditor.builtinPlugins = builtinPlugins;
+
+BalloonEditorWithComment.builtinPlugins = [
 	...builtinPlugins,
 	BalloonToolbar,
 	Comments,
@@ -139,12 +153,15 @@ const defaultConfig = {
 			'mergeTableCells'
 		]
 	},
+	blockToolbar: [ 'heading', '|', 'bulletedList', 'numberedList' ],
 	language: 'en'
 };
 
 ClassicEditor.defaultConfig = defaultConfig;
 
-InlineEditor.defaultConfig = defaultConfig;
+// InlineEditor.defaultConfig = defaultConfig;
+
+BalloonEditor.defaultConfig = defaultConfig;
 
 const defaultConfigWithComment = { ...defaultConfig };
 const items = [
@@ -187,10 +204,13 @@ defaultConfigWithComment.mediaEmbed = {
 defaultConfigWithComment.balloonToolbar = [
 	'comment',
 ];
-InlineEditorWithComment.defaultConfig = defaultConfigWithComment;
+// InlineEditorWithComment.defaultConfig = defaultConfigWithComment;
+BalloonEditorWithComment.defaultConfig = defaultConfigWithComment;
 
 export default {
 	ClassicEditor,
-	InlineEditor,
-	InlineEditorWithComment,
+	// InlineEditor,
+	// InlineEditorWithComment,
+	BalloonEditor,
+	BalloonEditorWithComment,
 };
