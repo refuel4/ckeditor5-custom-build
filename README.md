@@ -38,23 +38,23 @@ Add or remove plugins, modify the config in `src/ckeditor.js`
 
 Create the build
 ```
-npm run build
+yarn run build
 ```
 
 Optional: build and check the bundle size
 ```
-npm run build:analyzer
+yarn run build:analyzer
 ```
 
 Build and check the sample usage of the build
 ```
-npm start
+yarn start
 # then open http://localhost:8080/sample/
 ```
 
 Publish to npm (might require team member permission)
 ```
-npm publish
+yarn publish
 ```
 
 Find it in npm registry: https://www.npmjs.com/package/ckeditor5-creadits-build

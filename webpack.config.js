@@ -11,7 +11,7 @@ const path = require( 'path' );
 const webpack = require( 'webpack' );
 const { bundler, styles } = require( '@ckeditor/ckeditor5-dev-utils' );
 const CKEditorWebpackPlugin = require( '@ckeditor/ckeditor5-dev-webpack-plugin' );
-const UglifyJsWebpackPlugin = require( 'uglifyjs-webpack-plugin' );
+const TerserPlugin = require( 'terser-webpack-plugin' );
 
 const config = {
 	devtool: 'source-map',
@@ -32,14 +32,11 @@ const config = {
 
 	optimization: {
 		minimizer: [
-			new UglifyJsWebpackPlugin( {
-				sourceMap: true,
-				uglifyOptions: {
-					output: {
-						// Preserve CKEditor 5 license comments.
-						comments: /^!/
-					}
-				}
+			new TerserPlugin( {
+				parallel: true,
+				terserOptions: {
+					ecma: 6,
+				},
 			} )
 		]
 	},
@@ -69,7 +66,7 @@ const config = {
 					{
 						loader: 'style-loader',
 						options: {
-							singleton: true
+							injectType: 'singletonStyleTag'
 						}
 					},
 					{
