@@ -36,6 +36,7 @@ import BalloonToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/balloon/balloonto
 import Comments from '@ckeditor/ckeditor5-comments/src/comments';
 import CommentsOnly from '@ckeditor/ckeditor5-comments/src/commentsonly';
 import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar';
+import Mention from '@ckeditor/ckeditor5-mention/src/mention';
 
 class ClassicEditor extends ClassicEditorBase {}
 class BalloonEditor extends BalloonEditorBase {}
@@ -78,6 +79,7 @@ BalloonEditorWithComment.builtinPlugins = [
 	BalloonToolbar,
 	Comments,
 	CommentsOnly,
+	Mention,
 ];
 
 // Editor configuration.
