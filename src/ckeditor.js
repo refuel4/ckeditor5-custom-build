@@ -120,17 +120,6 @@ const defaultConfig = {
   link: {
     addTargetToExternalLinks: true
   },
-  highlight: {
-    options: [
-      {
-        model: 'greenMarker',
-        class: 'marker-green',
-        title: 'Highlight',
-        color: 'var(--ck-highlight-marker-green)',
-        type: 'marker'
-      }
-    ]
-  },
   language: 'en'
 };
 
