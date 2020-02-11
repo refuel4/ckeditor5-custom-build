@@ -9,6 +9,9 @@
 
 module.exports = {
 	extends: 'ckeditor5',
+  rules: {
+    indent: [2, 2],
+  },
 	parserOptions: {
     ecmaVersion: 9,
     sourceType: 'module'

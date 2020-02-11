@@ -37,6 +37,7 @@ import Comments from '@ckeditor/ckeditor5-comments/src/comments';
 import CommentsOnly from '@ckeditor/ckeditor5-comments/src/commentsonly';
 import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
 
 class ClassicEditor extends ClassicEditorBase {}
 class BalloonEditor extends BalloonEditorBase {}
@@ -44,30 +45,31 @@ class BalloonEditorWithComment extends BalloonEditorBase {}
 
 // Plugins to include in the build.
 const builtinPlugins = [
-	Alignment,
-	Autoformat,
-	Bold,
-	CKFinder,
-	EasyImage,
-	Essentials,
-	Heading,
-	Image,
-	ImageStyle,
-	ImageToolbar,
-	ImageUpload,
-	ImageResize,
-	Italic,
-	Link,
-	List,
-	MediaEmbed,
-	Paragraph,
-	PasteFromOffice,
-	Strikethrough,
-	Table,
-	TableToolbar,
-	Underline,
-	UploadAdapter,
-	BlockToolbar,
+  Alignment,
+  Autoformat,
+  Bold,
+  CKFinder,
+  EasyImage,
+  Essentials,
+  Heading,
+  Image,
+  ImageStyle,
+  ImageToolbar,
+  ImageUpload,
+  ImageResize,
+  Italic,
+  Link,
+  List,
+  MediaEmbed,
+  Paragraph,
+  PasteFromOffice,
+  Strikethrough,
+  Table,
+  TableToolbar,
+  Underline,
+  UploadAdapter,
+  BlockToolbar,
+  Highlight,
 ];
 
 ClassicEditor.builtinPlugins = builtinPlugins;
@@ -75,50 +77,61 @@ ClassicEditor.builtinPlugins = builtinPlugins;
 BalloonEditor.builtinPlugins = builtinPlugins;
 
 BalloonEditorWithComment.builtinPlugins = [
-	...builtinPlugins,
-	BalloonToolbar,
-	Comments,
-	CommentsOnly,
-	Mention,
+  ...builtinPlugins,
+  BalloonToolbar,
+  Comments,
+  CommentsOnly,
+  Mention,
 ];
 
 // Editor configuration.
 const defaultConfig = {
-	blockToolbar: [
-		'link', 'bulletedList', 'numberedList', 'alignment',
-		'|',
-		'insertTable', 'imageUpload', 'mediaEmbed',
-	],
-	toolbar: {
-		items: [
-			'heading',
-			'|',
-			'bold', 'italic', 'underline', 'strikethrough',
-		]
-	},
-	image: {
-		toolbar: [
-			'imageStyle:alignLeft',
-			'imageStyle:full',
-			'imageStyle:alignRight',
-		],
-		styles: [
-			'alignLeft',
-			'full',
-			'alignRight'
-		]
-	},
-	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
-		]
-	},
-	link: {
-		addTargetToExternalLinks: true
-	},
-	language: 'en'
+  blockToolbar: [
+    'link', 'bulletedList', 'numberedList', 'alignment',
+    '|',
+    'insertTable', 'imageUpload', 'mediaEmbed',
+  ],
+  toolbar: {
+    items: [
+      'heading',
+      '|',
+      'bold', 'italic', 'underline', 'strikethrough', 'highlight',
+    ]
+  },
+  image: {
+    toolbar: [
+      'imageStyle:alignLeft',
+      'imageStyle:full',
+      'imageStyle:alignRight',
+    ],
+    styles: [
+      'alignLeft',
+      'full',
+      'alignRight'
+    ]
+  },
+  table: {
+    contentToolbar: [
+      'tableColumn',
+      'tableRow',
+      'mergeTableCells'
+    ]
+  },
+  link: {
+    addTargetToExternalLinks: true
+  },
+  highlight: {
+    options: [
+      {
+        model: 'greenMarker',
+        class: 'marker-green',
+        title: 'Highlight',
+        color: 'var(--ck-highlight-marker-green)',
+        type: 'marker'
+      }
+    ]
+  },
+  language: 'en'
 };
 
 ClassicEditor.defaultConfig = defaultConfig;
@@ -127,48 +140,48 @@ BalloonEditor.defaultConfig = defaultConfig;
 
 const defaultConfigWithComment = { ...defaultConfig };
 const items = [
-	...defaultConfigWithComment.toolbar.items,
-	'|',
-	'comment',
+  ...defaultConfigWithComment.toolbar.items,
+  '|',
+  'comment',
 ];
 defaultConfigWithComment.toolbar = { items };
 defaultConfigWithComment.image = {
-	toolbar: [
-		'imageStyle:alignLeft',
-		'imageStyle:full',
-		'imageStyle:alignRight',
-		'|',
-		'comment'
-	],
-	styles: [
-		'alignLeft',
-		'full',
-		'alignRight'
-	]
+  toolbar: [
+    'imageStyle:alignLeft',
+    'imageStyle:full',
+    'imageStyle:alignRight',
+    '|',
+    'comment'
+  ],
+  styles: [
+    'alignLeft',
+    'full',
+    'alignRight'
+  ]
 };
 defaultConfigWithComment.table = {
-	contentToolbar: [
-		'tableColumn',
-		'tableRow',
-		'mergeTableCells'
-	],
-	tableToolbar: [
-		'comment'
-	]
+  contentToolbar: [
+    'tableColumn',
+    'tableRow',
+    'mergeTableCells'
+  ],
+  tableToolbar: [
+    'comment'
+  ]
 };
 defaultConfigWithComment.mediaEmbed = {
-	toolbar: [
-		'comment'
-	]
+  toolbar: [
+    'comment'
+  ]
 };
 defaultConfigWithComment.balloonToolbar = [
-	'comment',
+  'comment',
 ];
 // InlineEditorWithComment.defaultConfig = defaultConfigWithComment;
 BalloonEditorWithComment.defaultConfig = defaultConfigWithComment;
 
 export default {
-	ClassicEditor,
-	BalloonEditor,
-	BalloonEditorWithComment,
+  ClassicEditor,
+  BalloonEditor,
+  BalloonEditorWithComment,
 };
